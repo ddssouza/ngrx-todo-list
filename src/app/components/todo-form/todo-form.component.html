@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col col-xs-12">
+      <h3>My Todo List</h3>
+      <div class="row pt-4 align-center justify-content-center">
+        <textarea class="w-100 p-3" id="" cols="30" [(ngModel)]="newTodo" name="newTodo" rows="5">
+        </textarea>
+        <button class="mt-3 btn btn-primary" [disabled]="newTodo.length < 2" (click)="onAddTodo()">Save</button>
+      </div>
+    </div>
+  </div>

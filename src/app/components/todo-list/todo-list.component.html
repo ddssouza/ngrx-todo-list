@@ -1,0 +1,8 @@
+<div class="row mt-5">
+    <div class="col w-100">
+      <todo-item 
+        [todos]="todos"
+        (deleteTodo)="onDelete($event)"
+      ></todo-item>
+    </div>
+</div>
