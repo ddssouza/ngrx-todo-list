@@ -14,10 +14,6 @@ export class TodoListComponent {
     @Output()
     deleteTodo = new EventEmitter<number>(); 
 
-    constructor() {
-        console.log("todos", this.todos);
-    }
-
     onDelete(todoId: number) {
         this.deleteTodo.emit(todoId);
     }

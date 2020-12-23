@@ -15,7 +15,7 @@ export class TodoFormComponent {
 
     onAddTodo() {
         let todo:TodoItem = {
-            id: Math.floor(Math.random() * 1000),
+            id: Math.floor(Math.random() * 10000),
             description: this.newTodo,
             date: Date.now().toLocaleString(),
             isComplete: false
