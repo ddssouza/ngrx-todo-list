@@ -1,5 +1,5 @@
 import { TodoItem } from './../../models/todo.model';
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'todo-form',
@@ -15,7 +15,7 @@ export class TodoFormComponent {
 
     onAddTodo() {
         let todo:TodoItem = {
-            id: Math.floor(Math.random() * Math.floor(1000)),
+            id: Math.floor(Math.random() * 1000),
             description: this.newTodo,
             date: Date.now().toLocaleString(),
             isComplete: false

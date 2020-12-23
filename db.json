@@ -1,3 +1,28 @@
 {
-  "todos": []
+  "todos": [
+    {
+      "id": 375,
+      "description": "Do my dad's taxes.",
+      "date": "1,608,709,240,773",
+      "isComplete": false
+    },
+    {
+      "id": 20,
+      "description": "Get car washed.",
+      "date": "1,608,709,255,281",
+      "isComplete": false
+    },
+    {
+      "id": 361,
+      "description": "Pick up eye medication.",
+      "date": "1,608,709,353,576",
+      "isComplete": false
+    },
+    {
+      "id": 868,
+      "description": "Take the doggo to the vet.",
+      "date": "1,608,734,555,856",
+      "isComplete": false
+    }
+  ]
 }
