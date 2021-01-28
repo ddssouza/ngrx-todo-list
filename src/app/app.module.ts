@@ -10,7 +10,7 @@ import { TodosReducer } from './store/todo.reducers';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
+import { EffectsModule, EffectsRootModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -28,9 +28,10 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     CommonModule,
     FormsModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('todos', TodosReducer),
-    EffectsModule.forFeature([TodoEffects]),
+    EffectsModule.forRoot([TodoEffects]),
+    StoreModule.forRoot({
+      todos: TodosReducer,
+    }),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],
