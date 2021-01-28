@@ -1,4 +1,7 @@
 <div class="container p-5">
   <todo-form (addTodo)="doAddTodo($event)"></todo-form>
-  <todo-list [todos]="todos$ | async" (deleteTodo)="doDeleteTodo($event)"></todo-list>
+  <todo-list
+    [todos]="todos$ | async"
+    (deleteTodo)="doDeleteTodo($event)"
+  ></todo-list>
 </div>

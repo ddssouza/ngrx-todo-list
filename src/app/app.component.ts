@@ -1,18 +1,26 @@
+import { TodoListState } from './store/todo.state';
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { AppState } from './app-state';
 import { TodoItem } from './models/todo.model';
-import { refreshTodosRequest, addTodoRequest, deleteTodoRequest } from './state/todo.actions';
+import {
+  refreshTodosRequest,
+  addTodoRequest,
+  deleteTodoRequest,
+} from './store/todo.actions';
+import { selectAllTodos } from './store/todo.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.sass']
+  styleUrls: ['./app.component.sass'],
 })
 export class AppComponent implements OnInit {
-  todos$ = this.store.pipe(select(state => state.todos));
+  todos$: Observable<TodoItem[]>;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<TodoListState>) {
+    this.todos$ = this.store.pipe(select(selectAllTodos));
+  }
 
   ngOnInit() {
     this.store.dispatch(refreshTodosRequest());

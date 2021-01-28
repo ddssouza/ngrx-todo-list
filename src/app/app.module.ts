@@ -2,10 +2,10 @@ import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoItemComponent } from './components/todo-item/todo-item.component';
 import { FormsModule } from '@angular/forms';
-import { TodoEffects } from './state/todo.effects';
+import { TodoEffects } from './store/todo.effects';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { todosReducer } from './state/todo.reducers';
+import { TodosReducer } from './store/todo.reducers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,21 +20,20 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     TodoItemComponent,
     TodoListComponent,
-    TodoFormComponent
+    TodoFormComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     HttpClientModule,
     CommonModule,
     FormsModule,
-    StoreModule.forRoot({
-      todos: todosReducer
-    }), 
-    EffectsModule.forRoot([ TodoEffects ]),
-    StoreDevtoolsModule.instrument()
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('todos', TodosReducer),
+    EffectsModule.forFeature([TodoEffects]),
+    StoreDevtoolsModule.instrument(),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
